@@ -15849,7 +15849,11 @@ None
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dans ce cas, Python réalise une troncature à l&#39;unité</span>
+<span class="nb">int</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+
+<span class="c1"># Pour faire un arrondi, utiliser la fonction round()</span>
+<span class="nb">round</span><span class="p">(</span><span class="mf">3.965</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17132,11 +17136,16 @@ L&#39;individu Georges a 71 ans.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[179]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Très important : afficher l&#39;aide d&#39;un module et le lien vers sa documentation complète</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span>
+
+<span class="c1"># Très important : afficher l&#39;aide d&#39;un module et le lien vers sa documentation complète</span>
 <span class="n">help</span><span class="p">(</span><span class="n">statistics</span><span class="p">)</span>
+
+<span class="c1"># Avec l&#39;interpréteur IPython (utilisé par Jupyter Lab), on peux aussi afficher l&#39;aide comme cela</span>
+<span class="o">?</span>statistics
 </pre></div>
 
      </div>
@@ -17162,7 +17171,7 @@ NAME
     statistics - Basic statistics module.
 
 MODULE REFERENCE
-    https://docs.python.org/3.7/library/statistics
+    https://docs.python.org/3.10/library/statistics.html
     
     The following documentation is automatically generated from the Python
     source files.  It may be incomplete, incorrect or include features that
@@ -17177,17 +17186,21 @@ DESCRIPTION
     Calculating averages
     --------------------
     
-    ==================  =============================================
+    ==================  ==================================================
     Function            Description
-    ==================  =============================================
+    ==================  ==================================================
     mean                Arithmetic mean (average) of data.
+    fmean               Fast, floating point arithmetic mean.
+    geometric_mean      Geometric mean of data.
     harmonic_mean       Harmonic mean of data.
     median              Median (middle value) of data.
     median_low          Low median of data.
     median_high         High median of data.
     median_grouped      Median, or 50th percentile, of grouped data.
     mode                Mode (most common value) of data.
-    ==================  =============================================
+    multimode           List of modes (most common values of data).
+    quantiles           Divide data into intervals with equal probability.
+    ==================  ==================================================
     
     Calculate the arithmetic mean (&#34;the average&#34;) of data:
     
@@ -17239,6 +17252,30 @@ DESCRIPTION
     2.5
     
     
+    Statistics for relations between two inputs
+    -------------------------------------------
+    
+    ==================  ====================================================
+    Function            Description
+    ==================  ====================================================
+    covariance          Sample covariance for two variables.
+    correlation         Pearson&#39;s correlation coefficient for two variables.
+    linear_regression   Intercept and slope for simple linear regression.
+    ==================  ====================================================
+    
+    Calculate covariance, Pearson&#39;s correlation, and simple linear regression
+    for two inputs:
+    
+    &gt;&gt;&gt; x = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    &gt;&gt;&gt; y = [1, 2, 3, 1, 2, 3, 1, 2, 3]
+    &gt;&gt;&gt; covariance(x, y)
+    0.75
+    &gt;&gt;&gt; correlation(x, y)  #doctest: +ELLIPSIS
+    0.31622776601...
+    &gt;&gt;&gt; linear_regression(x, y)  #doctest:
+    LinearRegression(slope=0.1, intercept=1.5)
+    
+    
     Exceptions
     ----------
     
@@ -17247,10 +17284,147 @@ DESCRIPTION
 CLASSES
     builtins.ValueError(builtins.Exception)
         StatisticsError
+    builtins.object
+        NormalDist
+    
+    class NormalDist(builtins.object)
+     |  NormalDist(mu=0.0, sigma=1.0)
+     |  
+     |  Normal distribution of a random variable
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(x1, x2)
+     |      Add a constant or another NormalDist instance.
+     |      
+     |      If *other* is a constant, translate mu by the constant,
+     |      leaving sigma unchanged.
+     |      
+     |      If *other* is a NormalDist, add both the means and the variances.
+     |      Mathematically, this works only if the two distributions are
+     |      independent or if they are jointly normally distributed.
+     |  
+     |  __eq__(x1, x2)
+     |      Two NormalDist objects are equal if their mu and sigma are both equal.
+     |  
+     |  __hash__(self)
+     |      NormalDist objects hash equal if their mu and sigma are both equal.
+     |  
+     |  __init__(self, mu=0.0, sigma=1.0)
+     |      NormalDist where mu is the mean and sigma is the standard deviation.
+     |  
+     |  __mul__(x1, x2)
+     |      Multiply both mu and sigma by a constant.
+     |      
+     |      Used for rescaling, perhaps to change measurement units.
+     |      Sigma is scaled with the absolute value of the constant.
+     |  
+     |  __neg__(x1)
+     |      Negates mu while keeping sigma the same.
+     |  
+     |  __pos__(x1)
+     |      Return a copy of the instance.
+     |  
+     |  __radd__ = __add__(x1, x2)
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  __rmul__ = __mul__(x1, x2)
+     |  
+     |  __rsub__(x1, x2)
+     |      Subtract a NormalDist from a constant or another NormalDist.
+     |  
+     |  __sub__(x1, x2)
+     |      Subtract a constant or another NormalDist instance.
+     |      
+     |      If *other* is a constant, translate by the constant mu,
+     |      leaving sigma unchanged.
+     |      
+     |      If *other* is a NormalDist, subtract the means and add the variances.
+     |      Mathematically, this works only if the two distributions are
+     |      independent or if they are jointly normally distributed.
+     |  
+     |  __truediv__(x1, x2)
+     |      Divide both mu and sigma by a constant.
+     |      
+     |      Used for rescaling, perhaps to change measurement units.
+     |      Sigma is scaled with the absolute value of the constant.
+     |  
+     |  cdf(self, x)
+     |      Cumulative distribution function.  P(X &lt;= x)
+     |  
+     |  inv_cdf(self, p)
+     |      Inverse cumulative distribution function.  x : P(X &lt;= x) = p
+     |      
+     |      Finds the value of the random variable such that the probability of
+     |      the variable being less than or equal to that value equals the given
+     |      probability.
+     |      
+     |      This function is also called the percent point function or quantile
+     |      function.
+     |  
+     |  overlap(self, other)
+     |      Compute the overlapping coefficient (OVL) between two normal distributions.
+     |      
+     |      Measures the agreement between two normal probability distributions.
+     |      Returns a value between 0.0 and 1.0 giving the overlapping area in
+     |      the two underlying probability density functions.
+     |      
+     |          &gt;&gt;&gt; N1 = NormalDist(2.4, 1.6)
+     |          &gt;&gt;&gt; N2 = NormalDist(3.2, 2.0)
+     |          &gt;&gt;&gt; N1.overlap(N2)
+     |          0.8035050657330205
+     |  
+     |  pdf(self, x)
+     |      Probability density function.  P(x &lt;= X &lt; x+dx) / dx
+     |  
+     |  quantiles(self, n=4)
+     |      Divide into *n* continuous intervals with equal probability.
+     |      
+     |      Returns a list of (n - 1) cut points separating the intervals.
+     |      
+     |      Set *n* to 4 for quartiles (the default).  Set *n* to 10 for deciles.
+     |      Set *n* to 100 for percentiles which gives the 99 cuts points that
+     |      separate the normal distribution in to 100 equal sized groups.
+     |  
+     |  samples(self, n, *, seed=None)
+     |      Generate *n* samples for a given mean and standard deviation.
+     |  
+     |  zscore(self, x)
+     |      Compute the Standard Score.  (x - mean) / stdev
+     |      
+     |      Describes *x* in terms of the number of standard deviations
+     |      above or below the mean of the normal distribution.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  from_samples(data) from builtins.type
+     |      Make a normal distribution instance from sample data.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Readonly properties defined here:
+     |  
+     |  mean
+     |      Arithmetic mean of the normal distribution.
+     |  
+     |  median
+     |      Return the median of the normal distribution
+     |  
+     |  mode
+     |      Return the mode of the normal distribution
+     |      
+     |      The mode is the value x where which the probability density
+     |      function (pdf) takes its maximum value.
+     |  
+     |  stdev
+     |      Standard deviation of the normal distribution.
+     |  
+     |  variance
+     |      Square of the standard deviation.
     
     class StatisticsError(builtins.ValueError)
-     |  Inappropriate argument value (of correct type).
-     |  
      |  Method resolution order:
      |      StatisticsError
      |      builtins.ValueError
@@ -17320,26 +17494,105 @@ CLASSES
      |  args
 
 FUNCTIONS
-    harmonic_mean(data)
+    correlation(x, y, /)
+        Pearson&#39;s correlation coefficient
+        
+        Return the Pearson&#39;s correlation coefficient for two inputs. Pearson&#39;s
+        correlation coefficient *r* takes values between -1 and +1. It measures the
+        strength and direction of the linear relationship, where +1 means very
+        strong, positive linear relationship, -1 very strong, negative linear
+        relationship, and 0 no linear relationship.
+        
+        &gt;&gt;&gt; x = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        &gt;&gt;&gt; y = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+        &gt;&gt;&gt; correlation(x, x)
+        1.0
+        &gt;&gt;&gt; correlation(x, y)
+        -1.0
+    
+    covariance(x, y, /)
+        Covariance
+        
+        Return the sample covariance of two inputs *x* and *y*. Covariance
+        is a measure of the joint variability of two inputs.
+        
+        &gt;&gt;&gt; x = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        &gt;&gt;&gt; y = [1, 2, 3, 1, 2, 3, 1, 2, 3]
+        &gt;&gt;&gt; covariance(x, y)
+        0.75
+        &gt;&gt;&gt; z = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+        &gt;&gt;&gt; covariance(x, z)
+        -7.5
+        &gt;&gt;&gt; covariance(z, x)
+        -7.5
+    
+    fmean(data)
+        Convert data to floats and compute the arithmetic mean.
+        
+        This runs faster than the mean() function and it always returns a float.
+        If the input dataset is empty, it raises a StatisticsError.
+        
+        &gt;&gt;&gt; fmean([3.5, 4.0, 5.25])
+        4.25
+    
+    geometric_mean(data)
+        Convert data to floats and compute the geometric mean.
+        
+        Raises a StatisticsError if the input dataset is empty,
+        if it contains a zero, or if it contains a negative value.
+        
+        No special efforts are made to achieve exact results.
+        (However, this may change in the future.)
+        
+        &gt;&gt;&gt; round(geometric_mean([54, 24, 36]), 9)
+        36.0
+    
+    harmonic_mean(data, weights=None)
         Return the harmonic mean of data.
         
-        The harmonic mean, sometimes called the subcontrary mean, is the
-        reciprocal of the arithmetic mean of the reciprocals of the data,
-        and is often appropriate when averaging quantities which are rates
-        or ratios, for example speeds. Example:
+        The harmonic mean is the reciprocal of the arithmetic mean of the
+        reciprocals of the data.  It can be used for averaging ratios or
+        rates, for example speeds.
         
-        Suppose an investor purchases an equal value of shares in each of
-        three companies, with P/E (price/earning) ratios of 2.5, 3 and 10.
-        What is the average P/E ratio for the investor&#39;s portfolio?
+        Suppose a car travels 40 km/hr for 5 km and then speeds-up to
+        60 km/hr for another 5 km. What is the average speed?
         
-        &gt;&gt;&gt; harmonic_mean([2.5, 3, 10])  # For an equal investment portfolio.
-        3.6
+            &gt;&gt;&gt; harmonic_mean([40, 60])
+            48.0
         
-        Using the arithmetic mean would give an average of about 5.167, which
-        is too high.
+        Suppose a car travels 40 km/hr for 5 km, and when traffic clears,
+        speeds-up to 60 km/hr for the remaining 30 km of the journey. What
+        is the average speed?
+        
+            &gt;&gt;&gt; harmonic_mean([40, 60], weights=[5, 30])
+            56.0
         
         If ``data`` is empty, or any element is less than zero,
         ``harmonic_mean`` will raise ``StatisticsError``.
+    
+    linear_regression(x, y, /)
+        Slope and intercept for simple linear regression.
+        
+        Return the slope and intercept of simple linear regression
+        parameters estimated using ordinary least squares. Simple linear
+        regression describes relationship between an independent variable
+        *x* and a dependent variable *y* in terms of linear function:
+        
+            y = slope * x + intercept + noise
+        
+        where *slope* and *intercept* are the regression parameters that are
+        estimated, and noise represents the variability of the data that was
+        not explained by the linear regression (it is equal to the
+        difference between predicted and actual values of the dependent
+        variable).
+        
+        The parameters are returned as a named tuple.
+        
+        &gt;&gt;&gt; x = [1, 2, 3, 4, 5]
+        &gt;&gt;&gt; noise = NormalDist().samples(5, seed=42)
+        &gt;&gt;&gt; y = [3 * x[i] + 2 + noise[i] for i in range(5)]
+        &gt;&gt;&gt; linear_regression(x, y)  #doctest: +ELLIPSIS
+        LinearRegression(slope=3.09078914170..., intercept=1.75684970486...)
     
     mean(data)
         Return the sample arithmetic mean of data.
@@ -17423,16 +17676,34 @@ FUNCTIONS
         ``mode`` assumes discrete data, and returns a single value. This is the
         standard treatment of the mode as commonly taught in schools:
         
-        &gt;&gt;&gt; mode([1, 1, 2, 3, 3, 3, 3, 4])
-        3
+            &gt;&gt;&gt; mode([1, 1, 2, 3, 3, 3, 3, 4])
+            3
         
         This also works with nominal (non-numeric) data:
         
-        &gt;&gt;&gt; mode([&#34;red&#34;, &#34;blue&#34;, &#34;blue&#34;, &#34;red&#34;, &#34;green&#34;, &#34;red&#34;, &#34;red&#34;])
-        &#39;red&#39;
+            &gt;&gt;&gt; mode([&#34;red&#34;, &#34;blue&#34;, &#34;blue&#34;, &#34;red&#34;, &#34;green&#34;, &#34;red&#34;, &#34;red&#34;])
+            &#39;red&#39;
         
-        If there is not exactly one most common value, ``mode`` will raise
-        StatisticsError.
+        If there are multiple modes with same frequency, return the first one
+        encountered:
+        
+            &gt;&gt;&gt; mode([&#39;red&#39;, &#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;blue&#39;])
+            &#39;red&#39;
+        
+        If *data* is empty, ``mode``, raises StatisticsError.
+    
+    multimode(data)
+        Return a list of the most frequently occurring values.
+        
+        Will return more than one result if there are multiple modes
+        or an empty list if *data* is empty.
+        
+        &gt;&gt;&gt; multimode(&#39;aabbbbbbbbcc&#39;)
+        [&#39;b&#39;]
+        &gt;&gt;&gt; multimode(&#39;aabbbbccddddeeffffgg&#39;)
+        [&#39;b&#39;, &#39;d&#39;, &#39;f&#39;]
+        &gt;&gt;&gt; multimode(&#39;&#39;)
+        []
     
     pstdev(data, mu=None)
         Return the square root of the population variance.
@@ -17445,7 +17716,7 @@ FUNCTIONS
     pvariance(data, mu=None)
         Return the population variance of ``data``.
         
-        data should be an iterable of Real-valued numbers, with at least one
+        data should be a sequence or iterable of Real-valued numbers, with at least one
         value. The optional argument mu, if given, should be the mean of
         the data. If it is missing or None, the mean is automatically calculated.
         
@@ -17466,10 +17737,6 @@ FUNCTIONS
         &gt;&gt;&gt; pvariance(data, mu)
         1.25
         
-        This function does not check that ``mu`` is actually the mean of ``data``.
-        Giving arbitrary values for ``mu`` may lead to invalid or impossible
-        results.
-        
         Decimals and Fractions are supported:
         
         &gt;&gt;&gt; from decimal import Decimal as D
@@ -17479,6 +17746,22 @@ FUNCTIONS
         &gt;&gt;&gt; from fractions import Fraction as F
         &gt;&gt;&gt; pvariance([F(1, 4), F(5, 4), F(1, 2)])
         Fraction(13, 72)
+    
+    quantiles(data, *, n=4, method=&#39;exclusive&#39;)
+        Divide *data* into *n* continuous intervals with equal probability.
+        
+        Returns a list of (n - 1) cut points separating the intervals.
+        
+        Set *n* to 4 for quartiles (the default).  Set *n* to 10 for deciles.
+        Set *n* to 100 for percentiles which gives the 99 cuts points that
+        separate *data* in to 100 equal sized groups.
+        
+        The *data* can be any iterable containing sample.
+        The cut points are linearly interpolated between data points.
+        
+        If *method* is set to *inclusive*, *data* is treated as population
+        data.  The minimum value is treated as the 0th percentile and the
+        maximum value is treated as the 100th percentile.
     
     stdev(data, xbar=None)
         Return the square root of the sample variance.
@@ -17526,18 +17809,152 @@ FUNCTIONS
         Fraction(67, 108)
 
 DATA
-    __all__ = [&#39;StatisticsError&#39;, &#39;pstdev&#39;, &#39;pvariance&#39;, &#39;stdev&#39;, &#39;varianc...
+    __all__ = [&#39;NormalDist&#39;, &#39;StatisticsError&#39;, &#39;correlation&#39;, &#39;covariance...
 
 FILE
-    /usr/lib/python3.7/statistics.py
+    c:\users\sdunesme\miniconda3\envs\formation\lib\statistics.py
 
 
 </pre>
 </div>
 </div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre><span class="ansi-red-intense-fg ansi-bold">Type:</span>        module
+<span class="ansi-red-intense-fg ansi-bold">String form:</span> &lt;module &#39;statistics&#39; from &#39;C:\\Users\\sdunesme\\Miniconda3\\envs\\formation\\lib\\statistics.py&#39;&gt;
+<span class="ansi-red-intense-fg ansi-bold">File:</span>        c:\users\sdunesme\miniconda3\envs\formation\lib\statistics.py
+<span class="ansi-red-intense-fg ansi-bold">Docstring:</span>  
+Basic statistics module.
+
+This module provides functions for calculating statistics of data, including
+averages, variance, and standard deviation.
+
+Calculating averages
+--------------------
+
+==================  ==================================================
+Function            Description
+==================  ==================================================
+mean                Arithmetic mean (average) of data.
+fmean               Fast, floating point arithmetic mean.
+geometric_mean      Geometric mean of data.
+harmonic_mean       Harmonic mean of data.
+median              Median (middle value) of data.
+median_low          Low median of data.
+median_high         High median of data.
+median_grouped      Median, or 50th percentile, of grouped data.
+mode                Mode (most common value) of data.
+multimode           List of modes (most common values of data).
+quantiles           Divide data into intervals with equal probability.
+==================  ==================================================
+
+Calculate the arithmetic mean (&#34;the average&#34;) of data:
+
+&gt;&gt;&gt; mean([-1.0, 2.5, 3.25, 5.75])
+2.625
+
+
+Calculate the standard median of discrete data:
+
+&gt;&gt;&gt; median([2, 3, 4, 5])
+3.5
+
+
+Calculate the median, or 50th percentile, of data grouped into class intervals
+centred on the data values provided. E.g. if your data points are rounded to
+the nearest whole number:
+
+&gt;&gt;&gt; median_grouped([2, 2, 3, 3, 3, 4])  #doctest: +ELLIPSIS
+2.8333333333...
+
+This should be interpreted in this way: you have two data points in the class
+interval 1.5-2.5, three data points in the class interval 2.5-3.5, and one in
+the class interval 3.5-4.5. The median of these data points is 2.8333...
+
+
+Calculating variability or spread
+---------------------------------
+
+==================  =============================================
+Function            Description
+==================  =============================================
+pvariance           Population variance of data.
+variance            Sample variance of data.
+pstdev              Population standard deviation of data.
+stdev               Sample standard deviation of data.
+==================  =============================================
+
+Calculate the standard deviation of sample data:
+
+&gt;&gt;&gt; stdev([2.5, 3.25, 5.5, 11.25, 11.75])  #doctest: +ELLIPSIS
+4.38961843444...
+
+If you have previously calculated the mean, you can pass it as the optional
+second argument to the four &#34;spread&#34; functions to avoid recalculating it:
+
+&gt;&gt;&gt; data = [1, 2, 2, 4, 4, 4, 5, 6]
+&gt;&gt;&gt; mu = mean(data)
+&gt;&gt;&gt; pvariance(data, mu)
+2.5
+
+
+Statistics for relations between two inputs
+-------------------------------------------
+
+==================  ====================================================
+Function            Description
+==================  ====================================================
+covariance          Sample covariance for two variables.
+correlation         Pearson&#39;s correlation coefficient for two variables.
+linear_regression   Intercept and slope for simple linear regression.
+==================  ====================================================
+
+Calculate covariance, Pearson&#39;s correlation, and simple linear regression
+for two inputs:
+
+&gt;&gt;&gt; x = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+&gt;&gt;&gt; y = [1, 2, 3, 1, 2, 3, 1, 2, 3]
+&gt;&gt;&gt; covariance(x, y)
+0.75
+&gt;&gt;&gt; correlation(x, y)  #doctest: +ELLIPSIS
+0.31622776601...
+&gt;&gt;&gt; linear_regression(x, y)  #doctest:
+LinearRegression(slope=0.1, intercept=1.5)
+
+
+Exceptions
+----------
+
+A single exception is defined: StatisticsError is a subclass of ValueError.
+</pre>
+</div>
 
 </div>
 
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div></section></section>

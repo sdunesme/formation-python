@@ -15054,7 +15054,7 @@ Il y a 4 arbres de type cocotier
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">decrire_individu</span><span class="p">(</span><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
@@ -15083,6 +15083,57 @@ Il y a 4 arbres de type cocotier
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>L&#39;individu Georges Abitbol a 71 ans
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Lorsque l'on fait appel à une fonction, on peux soit nommer ses arguments, soit les renseigner dans le bon ordre.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">decrire_individu</span><span class="p">(</span><span class="s1">&#39;Georges&#39;</span><span class="p">,</span> <span class="s1">&#39;Abitbol&#39;</span><span class="p">,</span> <span class="mi">71</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">decrire_individu</span><span class="p">(</span><span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Abitbol&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">71</span><span class="p">,</span> <span class="n">prenom</span><span class="o">=</span><span class="s1">&#39;Georges&#39;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>L&#39;individu Georges Abitbol a 71 ans
+L&#39;individu Georges Abitbol a 71 ans
 </pre>
 </div>
 </div>
@@ -15208,7 +15259,8 @@ L&#39;individu Georges Abitbol a 30 ans
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Lire-et-%C3%A9crire-dans-un-fichier">Lire et &#233;crire dans un fichier<a class="anchor-link" href="#Lire-et-%C3%A9crire-dans-un-fichier">&#182;</a></h2>
+<p>Quand on est amené à partager ses fonctions, il est important de penser à rédiger une page d'aide. Voici un exemple.</p>
+
 </div>
 </div>
 </div>
@@ -15217,10 +15269,258 @@ L&#39;individu Georges Abitbol a 30 ans
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datasets/iris.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">decrire_individu</span><span class="p">(</span><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Retourne un message d&#39;unformations sur un individu.</span>
+
+<span class="sd">            Parameters:</span>
+<span class="sd">                    prenom (str): Prénom de l&#39;individu.</span>
+<span class="sd">                    nom (str): Nom de l&#39;individu.</span>
+<span class="sd">                    age (int): Age de l&#39;individu.</span>
+
+<span class="sd">            Returns:</span>
+<span class="sd">                    message (str): Message mis en forme avec les informaions sur l&#39;individu</span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;L</span><span class="se">\&#39;</span><span class="s1">individu </span><span class="si">{</span><span class="n">prenom</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s1"> a </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> ans&#39;</span>
+    
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">decrire_individu</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Help on function decrire_individu in module __main__:
+
+decrire_individu(prenom, nom, age=30)
+    Retourne un message d&#39;unformations sur un individu.
+    
+            Parameters:
+                    prenom (str): Prénom de l&#39;individu.
+                    nom (str): Nom de l&#39;individu.
+                    age (int): Age de l&#39;individu.
+    
+            Returns:
+                    message (str): Message mis en forme avec les informaions sur l&#39;individu
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Lire-et-%C3%A9crire-dans-un-fichier">Lire et &#233;crire dans un fichier<a class="anchor-link" href="#Lire-et-%C3%A9crire-dans-un-fichier">&#182;</a></h2><p>La fonction <code>open()</code> permet de créer un reader de fichier.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>open
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre><span class="ansi-red-intense-fg ansi-bold">Signature:</span>
+open<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    file<span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    mode<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;r&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    buffering<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-yellow-intense-fg ansi-bold">-</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    encoding<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    errors<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    newline<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    closefd<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">True</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    opener<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-red-intense-fg ansi-bold">Docstring:</span>
+Open file and return a stream.  Raise OSError upon failure.
+
+file is either a text or byte string giving the name (and the path
+if the file isn&#39;t in the current working directory) of the file to
+be opened or an integer file descriptor of the file to be
+wrapped. (If a file descriptor is given, it is closed when the
+returned I/O object is closed, unless closefd is set to False.)
+
+mode is an optional string that specifies the mode in which the file
+is opened. It defaults to &#39;r&#39; which means open for reading in text
+mode.  Other common values are &#39;w&#39; for writing (truncating the file if
+it already exists), &#39;x&#39; for creating and writing to a new file, and
+&#39;a&#39; for appending (which on some Unix systems, means that all writes
+append to the end of the file regardless of the current seek position).
+In text mode, if encoding is not specified the encoding used is platform
+dependent: locale.getpreferredencoding(False) is called to get the
+current locale encoding. (For reading and writing raw bytes use binary
+mode and leave encoding unspecified.) The available modes are:
+
+========= ===============================================================
+Character Meaning
+--------- ---------------------------------------------------------------
+&#39;r&#39;       open for reading (default)
+&#39;w&#39;       open for writing, truncating the file first
+&#39;x&#39;       create a new file and open it for writing
+&#39;a&#39;       open for writing, appending to the end of the file if it exists
+&#39;b&#39;       binary mode
+&#39;t&#39;       text mode (default)
+&#39;+&#39;       open a disk file for updating (reading and writing)
+&#39;U&#39;       universal newline mode (deprecated)
+========= ===============================================================
+
+The default mode is &#39;rt&#39; (open for reading text). For binary random
+access, the mode &#39;w+b&#39; opens and truncates the file to 0 bytes, while
+&#39;r+b&#39; opens the file without truncation. The &#39;x&#39; mode implies &#39;w&#39; and
+raises an `FileExistsError` if the file already exists.
+
+Python distinguishes between files opened in binary and text modes,
+even when the underlying operating system doesn&#39;t. Files opened in
+binary mode (appending &#39;b&#39; to the mode argument) return contents as
+bytes objects without any decoding. In text mode (the default, or when
+&#39;t&#39; is appended to the mode argument), the contents of the file are
+returned as strings, the bytes having been first decoded using a
+platform-dependent encoding or using the specified encoding if given.
+
+&#39;U&#39; mode is deprecated and will raise an exception in future versions
+of Python.  It has no effect in Python 3.  Use newline to control
+universal newlines mode.
+
+buffering is an optional integer used to set the buffering policy.
+Pass 0 to switch buffering off (only allowed in binary mode), 1 to select
+line buffering (only usable in text mode), and an integer &gt; 1 to indicate
+the size of a fixed-size chunk buffer.  When no buffering argument is
+given, the default buffering policy works as follows:
+
+* Binary files are buffered in fixed-size chunks; the size of the buffer
+  is chosen using a heuristic trying to determine the underlying device&#39;s
+  &#34;block size&#34; and falling back on `io.DEFAULT_BUFFER_SIZE`.
+  On many systems, the buffer will typically be 4096 or 8192 bytes long.
+
+* &#34;Interactive&#34; text files (files for which isatty() returns True)
+  use line buffering.  Other text files use the policy described above
+  for binary files.
+
+encoding is the name of the encoding used to decode or encode the
+file. This should only be used in text mode. The default encoding is
+platform dependent, but any encoding supported by Python can be
+passed.  See the codecs module for the list of supported encodings.
+
+errors is an optional string that specifies how encoding errors are to
+be handled---this argument should not be used in binary mode. Pass
+&#39;strict&#39; to raise a ValueError exception if there is an encoding error
+(the default of None has the same effect), or pass &#39;ignore&#39; to ignore
+errors. (Note that ignoring encoding errors can lead to data loss.)
+See the documentation for codecs.register or run &#39;help(codecs.Codec)&#39;
+for a list of the permitted encoding error strings.
+
+newline controls how universal newlines works (it only applies to text
+mode). It can be None, &#39;&#39;, &#39;\n&#39;, &#39;\r&#39;, and &#39;\r\n&#39;.  It works as
+follows:
+
+* On input, if newline is None, universal newlines mode is
+  enabled. Lines in the input can end in &#39;\n&#39;, &#39;\r&#39;, or &#39;\r\n&#39;, and
+  these are translated into &#39;\n&#39; before being returned to the
+  caller. If it is &#39;&#39;, universal newline mode is enabled, but line
+  endings are returned to the caller untranslated. If it has any of
+  the other legal values, input lines are only terminated by the given
+  string, and the line ending is returned to the caller untranslated.
+
+* On output, if newline is None, any &#39;\n&#39; characters written are
+  translated to the system default line separator, os.linesep. If
+  newline is &#39;&#39; or &#39;\n&#39;, no translation takes place. If newline is any
+  of the other legal values, any &#39;\n&#39; characters written are translated
+  to the given string.
+
+If closefd is False, the underlying file descriptor will be kept open
+when the file is closed. This does not work when a file name is given
+and must be True in that case.
+
+A custom opener can be used by passing a callable as *opener*. The
+underlying file descriptor for the file object is then obtained by
+calling *opener* with (*file*, *flags*). *opener* must return an open
+file descriptor (passing os.open as *opener* results in functionality
+similar to passing None).
+
+open() returns a file object whose type depends on the mode, and
+through which the standard file operations such as reading and writing
+are performed. When open() is used to open a file in a text mode (&#39;w&#39;,
+&#39;r&#39;, &#39;wt&#39;, &#39;rt&#39;, etc.), it returns a TextIOWrapper. When used to open
+a file in a binary mode, the returned class varies: in read binary
+mode, it returns a BufferedReader; in write binary and append binary
+modes, it returns a BufferedWriter, and in read/write mode, it returns
+a BufferedRandom.
+
+It is also possible to use a string or bytearray as a file for both
+reading and writing. For strings StringIO can be used like a file
+opened in a text mode, and for bytes a BytesIO can be used like a file
+opened in a binary mode.
+<span class="ansi-red-intense-fg ansi-bold">Type:</span>      function
+</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section ><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datasets/ipsum.txt&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 
@@ -15241,7 +15541,7 @@ L&#39;individu Georges Abitbol a 30 ans
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;_io.TextIOWrapper name=&#39;datasets/iris.csv&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+<pre>&lt;_io.TextIOWrapper name=&#39;datasets/ipsum.txt&#39; mode=&#39;r&#39; encoding=&#39;cp1252&#39;&gt;
 </pre>
 </div>
 </div>
@@ -15250,16 +15550,28 @@ L&#39;individu Georges Abitbol a 30 ans
 
 </div>
 
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour lire les lignes du fichier et les renvoyer dans une liste, il faut utiliser la méthode <code>readlines()</code>.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iris_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">iris_data</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ipsum</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ipsum</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15279,7 +15591,7 @@ L&#39;individu Georges Abitbol a 30 ans
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[&#39;&#34;&#34;,&#34;Sepal.Length&#34;,&#34;Sepal.Width&#34;,&#34;Petal.Length&#34;,&#34;Petal.Width&#34;,&#34;Species&#34;\n&#39;, &#39;&#34;1&#34;,5.1,3.5,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;2&#34;,4.9,3,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;3&#34;,4.7,3.2,1.3,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;4&#34;,4.6,3.1,1.5,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;5&#34;,5,3.6,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;6&#34;,5.4,3.9,1.7,0.4,&#34;setosa&#34;\n&#39;, &#39;&#34;7&#34;,4.6,3.4,1.4,0.3,&#34;setosa&#34;\n&#39;, &#39;&#34;8&#34;,5,3.4,1.5,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;9&#34;,4.4,2.9,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;10&#34;,4.9,3.1,1.5,0.1,&#34;setosa&#34;\n&#39;, &#39;&#34;11&#34;,5.4,3.7,1.5,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;12&#34;,4.8,3.4,1.6,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;13&#34;,4.8,3,1.4,0.1,&#34;setosa&#34;\n&#39;, &#39;&#34;14&#34;,4.3,3,1.1,0.1,&#34;setosa&#34;\n&#39;, &#39;&#34;15&#34;,5.8,4,1.2,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;16&#34;,5.7,4.4,1.5,0.4,&#34;setosa&#34;\n&#39;, &#39;&#34;17&#34;,5.4,3.9,1.3,0.4,&#34;setosa&#34;\n&#39;, &#39;&#34;18&#34;,5.1,3.5,1.4,0.3,&#34;setosa&#34;\n&#39;, &#39;&#34;19&#34;,5.7,3.8,1.7,0.3,&#34;setosa&#34;\n&#39;, &#39;&#34;20&#34;,5.1,3.8,1.5,0.3,&#34;setosa&#34;\n&#39;, &#39;&#34;21&#34;,5.4,3.4,1.7,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;22&#34;,5.1,3.7,1.5,0.4,&#34;setosa&#34;\n&#39;, &#39;&#34;23&#34;,4.6,3.6,1,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;24&#34;,5.1,3.3,1.7,0.5,&#34;setosa&#34;\n&#39;, &#39;&#34;25&#34;,4.8,3.4,1.9,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;26&#34;,5,3,1.6,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;27&#34;,5,3.4,1.6,0.4,&#34;setosa&#34;\n&#39;, &#39;&#34;28&#34;,5.2,3.5,1.5,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;29&#34;,5.2,3.4,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;30&#34;,4.7,3.2,1.6,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;31&#34;,4.8,3.1,1.6,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;32&#34;,5.4,3.4,1.5,0.4,&#34;setosa&#34;\n&#39;, &#39;&#34;33&#34;,5.2,4.1,1.5,0.1,&#34;setosa&#34;\n&#39;, &#39;&#34;34&#34;,5.5,4.2,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;35&#34;,4.9,3.1,1.5,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;36&#34;,5,3.2,1.2,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;37&#34;,5.5,3.5,1.3,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;38&#34;,4.9,3.6,1.4,0.1,&#34;setosa&#34;\n&#39;, &#39;&#34;39&#34;,4.4,3,1.3,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;40&#34;,5.1,3.4,1.5,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;41&#34;,5,3.5,1.3,0.3,&#34;setosa&#34;\n&#39;, &#39;&#34;42&#34;,4.5,2.3,1.3,0.3,&#34;setosa&#34;\n&#39;, &#39;&#34;43&#34;,4.4,3.2,1.3,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;44&#34;,5,3.5,1.6,0.6,&#34;setosa&#34;\n&#39;, &#39;&#34;45&#34;,5.1,3.8,1.9,0.4,&#34;setosa&#34;\n&#39;, &#39;&#34;46&#34;,4.8,3,1.4,0.3,&#34;setosa&#34;\n&#39;, &#39;&#34;47&#34;,5.1,3.8,1.6,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;48&#34;,4.6,3.2,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;49&#34;,5.3,3.7,1.5,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;50&#34;,5,3.3,1.4,0.2,&#34;setosa&#34;\n&#39;, &#39;&#34;51&#34;,7,3.2,4.7,1.4,&#34;versicolor&#34;\n&#39;, &#39;&#34;52&#34;,6.4,3.2,4.5,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;53&#34;,6.9,3.1,4.9,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;54&#34;,5.5,2.3,4,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;55&#34;,6.5,2.8,4.6,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;56&#34;,5.7,2.8,4.5,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;57&#34;,6.3,3.3,4.7,1.6,&#34;versicolor&#34;\n&#39;, &#39;&#34;58&#34;,4.9,2.4,3.3,1,&#34;versicolor&#34;\n&#39;, &#39;&#34;59&#34;,6.6,2.9,4.6,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;60&#34;,5.2,2.7,3.9,1.4,&#34;versicolor&#34;\n&#39;, &#39;&#34;61&#34;,5,2,3.5,1,&#34;versicolor&#34;\n&#39;, &#39;&#34;62&#34;,5.9,3,4.2,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;63&#34;,6,2.2,4,1,&#34;versicolor&#34;\n&#39;, &#39;&#34;64&#34;,6.1,2.9,4.7,1.4,&#34;versicolor&#34;\n&#39;, &#39;&#34;65&#34;,5.6,2.9,3.6,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;66&#34;,6.7,3.1,4.4,1.4,&#34;versicolor&#34;\n&#39;, &#39;&#34;67&#34;,5.6,3,4.5,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;68&#34;,5.8,2.7,4.1,1,&#34;versicolor&#34;\n&#39;, &#39;&#34;69&#34;,6.2,2.2,4.5,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;70&#34;,5.6,2.5,3.9,1.1,&#34;versicolor&#34;\n&#39;, &#39;&#34;71&#34;,5.9,3.2,4.8,1.8,&#34;versicolor&#34;\n&#39;, &#39;&#34;72&#34;,6.1,2.8,4,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;73&#34;,6.3,2.5,4.9,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;74&#34;,6.1,2.8,4.7,1.2,&#34;versicolor&#34;\n&#39;, &#39;&#34;75&#34;,6.4,2.9,4.3,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;76&#34;,6.6,3,4.4,1.4,&#34;versicolor&#34;\n&#39;, &#39;&#34;77&#34;,6.8,2.8,4.8,1.4,&#34;versicolor&#34;\n&#39;, &#39;&#34;78&#34;,6.7,3,5,1.7,&#34;versicolor&#34;\n&#39;, &#39;&#34;79&#34;,6,2.9,4.5,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;80&#34;,5.7,2.6,3.5,1,&#34;versicolor&#34;\n&#39;, &#39;&#34;81&#34;,5.5,2.4,3.8,1.1,&#34;versicolor&#34;\n&#39;, &#39;&#34;82&#34;,5.5,2.4,3.7,1,&#34;versicolor&#34;\n&#39;, &#39;&#34;83&#34;,5.8,2.7,3.9,1.2,&#34;versicolor&#34;\n&#39;, &#39;&#34;84&#34;,6,2.7,5.1,1.6,&#34;versicolor&#34;\n&#39;, &#39;&#34;85&#34;,5.4,3,4.5,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;86&#34;,6,3.4,4.5,1.6,&#34;versicolor&#34;\n&#39;, &#39;&#34;87&#34;,6.7,3.1,4.7,1.5,&#34;versicolor&#34;\n&#39;, &#39;&#34;88&#34;,6.3,2.3,4.4,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;89&#34;,5.6,3,4.1,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;90&#34;,5.5,2.5,4,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;91&#34;,5.5,2.6,4.4,1.2,&#34;versicolor&#34;\n&#39;, &#39;&#34;92&#34;,6.1,3,4.6,1.4,&#34;versicolor&#34;\n&#39;, &#39;&#34;93&#34;,5.8,2.6,4,1.2,&#34;versicolor&#34;\n&#39;, &#39;&#34;94&#34;,5,2.3,3.3,1,&#34;versicolor&#34;\n&#39;, &#39;&#34;95&#34;,5.6,2.7,4.2,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;96&#34;,5.7,3,4.2,1.2,&#34;versicolor&#34;\n&#39;, &#39;&#34;97&#34;,5.7,2.9,4.2,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;98&#34;,6.2,2.9,4.3,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;99&#34;,5.1,2.5,3,1.1,&#34;versicolor&#34;\n&#39;, &#39;&#34;100&#34;,5.7,2.8,4.1,1.3,&#34;versicolor&#34;\n&#39;, &#39;&#34;101&#34;,6.3,3.3,6,2.5,&#34;virginica&#34;\n&#39;, &#39;&#34;102&#34;,5.8,2.7,5.1,1.9,&#34;virginica&#34;\n&#39;, &#39;&#34;103&#34;,7.1,3,5.9,2.1,&#34;virginica&#34;\n&#39;, &#39;&#34;104&#34;,6.3,2.9,5.6,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;105&#34;,6.5,3,5.8,2.2,&#34;virginica&#34;\n&#39;, &#39;&#34;106&#34;,7.6,3,6.6,2.1,&#34;virginica&#34;\n&#39;, &#39;&#34;107&#34;,4.9,2.5,4.5,1.7,&#34;virginica&#34;\n&#39;, &#39;&#34;108&#34;,7.3,2.9,6.3,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;109&#34;,6.7,2.5,5.8,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;110&#34;,7.2,3.6,6.1,2.5,&#34;virginica&#34;\n&#39;, &#39;&#34;111&#34;,6.5,3.2,5.1,2,&#34;virginica&#34;\n&#39;, &#39;&#34;112&#34;,6.4,2.7,5.3,1.9,&#34;virginica&#34;\n&#39;, &#39;&#34;113&#34;,6.8,3,5.5,2.1,&#34;virginica&#34;\n&#39;, &#39;&#34;114&#34;,5.7,2.5,5,2,&#34;virginica&#34;\n&#39;, &#39;&#34;115&#34;,5.8,2.8,5.1,2.4,&#34;virginica&#34;\n&#39;, &#39;&#34;116&#34;,6.4,3.2,5.3,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;117&#34;,6.5,3,5.5,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;118&#34;,7.7,3.8,6.7,2.2,&#34;virginica&#34;\n&#39;, &#39;&#34;119&#34;,7.7,2.6,6.9,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;120&#34;,6,2.2,5,1.5,&#34;virginica&#34;\n&#39;, &#39;&#34;121&#34;,6.9,3.2,5.7,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;122&#34;,5.6,2.8,4.9,2,&#34;virginica&#34;\n&#39;, &#39;&#34;123&#34;,7.7,2.8,6.7,2,&#34;virginica&#34;\n&#39;, &#39;&#34;124&#34;,6.3,2.7,4.9,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;125&#34;,6.7,3.3,5.7,2.1,&#34;virginica&#34;\n&#39;, &#39;&#34;126&#34;,7.2,3.2,6,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;127&#34;,6.2,2.8,4.8,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;128&#34;,6.1,3,4.9,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;129&#34;,6.4,2.8,5.6,2.1,&#34;virginica&#34;\n&#39;, &#39;&#34;130&#34;,7.2,3,5.8,1.6,&#34;virginica&#34;\n&#39;, &#39;&#34;131&#34;,7.4,2.8,6.1,1.9,&#34;virginica&#34;\n&#39;, &#39;&#34;132&#34;,7.9,3.8,6.4,2,&#34;virginica&#34;\n&#39;, &#39;&#34;133&#34;,6.4,2.8,5.6,2.2,&#34;virginica&#34;\n&#39;, &#39;&#34;134&#34;,6.3,2.8,5.1,1.5,&#34;virginica&#34;\n&#39;, &#39;&#34;135&#34;,6.1,2.6,5.6,1.4,&#34;virginica&#34;\n&#39;, &#39;&#34;136&#34;,7.7,3,6.1,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;137&#34;,6.3,3.4,5.6,2.4,&#34;virginica&#34;\n&#39;, &#39;&#34;138&#34;,6.4,3.1,5.5,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;139&#34;,6,3,4.8,1.8,&#34;virginica&#34;\n&#39;, &#39;&#34;140&#34;,6.9,3.1,5.4,2.1,&#34;virginica&#34;\n&#39;, &#39;&#34;141&#34;,6.7,3.1,5.6,2.4,&#34;virginica&#34;\n&#39;, &#39;&#34;142&#34;,6.9,3.1,5.1,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;143&#34;,5.8,2.7,5.1,1.9,&#34;virginica&#34;\n&#39;, &#39;&#34;144&#34;,6.8,3.2,5.9,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;145&#34;,6.7,3.3,5.7,2.5,&#34;virginica&#34;\n&#39;, &#39;&#34;146&#34;,6.7,3,5.2,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;147&#34;,6.3,2.5,5,1.9,&#34;virginica&#34;\n&#39;, &#39;&#34;148&#34;,6.5,3,5.2,2,&#34;virginica&#34;\n&#39;, &#39;&#34;149&#34;,6.2,3.4,5.4,2.3,&#34;virginica&#34;\n&#39;, &#39;&#34;150&#34;,5.9,3,5.1,1.8,&#34;virginica&#34;\n&#39;]
+<pre>[&#39;Lorem ipsum dolor sit amet. A dolorum maxime non quae aliquid eum ipsam ullam aut repellendus esse vel magnam assumenda est ducimus iure? Et libero quia et accusantium fuga et inventore voluptatem in unde optio qui commodi ullam sit quia nostrum. Vel exercitationem consequatur sit illo magnam nam blanditiis voluptatibus qui molestias maxime et esse repudiandae qui odio deserunt sed illum aperiam.\n&#39;, &#39;\n&#39;, &#39;Et blanditiis quia non natus sapiente 33 galisum dolorem qui illo accusamus sed labore tempore non vero ipsam. Id magni facere eos voluptatibus magnam non repudiandae maxime. Aut enim velit et repellat porro aut officiis galisum qui architecto magnam quo perspiciatis fugit?\n&#39;, &#39;\n&#39;, &#39;Ad magni impedit est esse vitae qui eveniet asperiores et numquam optio! Aut ipsum sint qui internos minus aut nulla omnis in reprehenderit nesciunt 33 necessitatibus iure.\n&#39;, &#39;\n&#39;, &#39;Et quod galisum non voluptate veritatis ut adipisci cupiditate et obcaecati mollitia et eaque suscipit. Sit enim iusto aut nihil voluptates ab magnam alias qui galisum dolores! Sed galisum vitae et autem quae qui maxime tenetur ut minima sapiente et quia voluptatem aut pariatur omnis.\n&#39;, &#39;\n&#39;, &#39;Est accusamus expedita in suscipit delectus et tenetur galisum! Id rerum nemo ad autem quos sed magnam praesentium ea optio alias aut natus corrupti sed dicta ducimus.&#39;]
 </pre>
 </div>
 </div>
@@ -15288,12 +15600,175 @@ L&#39;individu Georges Abitbol a 30 ans
 
 </div>
 
-</div></div></section></section><section ><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Le reader créé par la fonction <code>open()</code> fonctionne comme un curseur : une fois arrivé au bour du fichier, il faut le remettre au début si on veux re-lire le fichier.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[62]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[&#39;Lorem ipsum dolor sit amet. A dolorum maxime non quae aliquid eum ipsam ullam aut repellendus esse vel magnam assumenda est ducimus iure? Et libero quia et accusantium fuga et inventore voluptatem in unde optio qui commodi ullam sit quia nostrum. Vel exercitationem consequatur sit illo magnam nam blanditiis voluptatibus qui molestias maxime et esse repudiandae qui odio deserunt sed illum aperiam.\n&#39;,
+ &#39;\n&#39;,
+ &#39;Et blanditiis quia non natus sapiente 33 galisum dolorem qui illo accusamus sed labore tempore non vero ipsam. Id magni facere eos voluptatibus magnam non repudiandae maxime. Aut enim velit et repellat porro aut officiis galisum qui architecto magnam quo perspiciatis fugit?\n&#39;,
+ &#39;\n&#39;,
+ &#39;Ad magni impedit est esse vitae qui eveniet asperiores et numquam optio! Aut ipsum sint qui internos minus aut nulla omnis in reprehenderit nesciunt 33 necessitatibus iure.\n&#39;,
+ &#39;\n&#39;,
+ &#39;Et quod galisum non voluptate veritatis ut adipisci cupiditate et obcaecati mollitia et eaque suscipit. Sit enim iusto aut nihil voluptates ab magnam alias qui galisum dolores! Sed galisum vitae et autem quae qui maxime tenetur ut minima sapiente et quia voluptatem aut pariatur omnis.\n&#39;,
+ &#39;\n&#39;,
+ &#39;Est accusamus expedita in suscipit delectus et tenetur galisum! Id rerum nemo ad autem quos sed magnam praesentium ea optio alias aut natus corrupti sed dicta ducimus.&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On peux aussi vouloir lire tout le contenu du fichier directement dans une chaine de caractères (pas une liste).</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[63]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Lorem ipsum dolor sit amet. A dolorum maxime non quae aliquid eum ipsam ullam aut repellendus esse vel magnam assumenda est ducimus iure? Et libero quia et accusantium fuga et inventore voluptatem in unde optio qui commodi ullam sit quia nostrum. Vel exercitationem consequatur sit illo magnam nam blanditiis voluptatibus qui molestias maxime et esse repudiandae qui odio deserunt sed illum aperiam.\n\nEt blanditiis quia non natus sapiente 33 galisum dolorem qui illo accusamus sed labore tempore non vero ipsam. Id magni facere eos voluptatibus magnam non repudiandae maxime. Aut enim velit et repellat porro aut officiis galisum qui architecto magnam quo perspiciatis fugit?\n\nAd magni impedit est esse vitae qui eveniet asperiores et numquam optio! Aut ipsum sint qui internos minus aut nulla omnis in reprehenderit nesciunt 33 necessitatibus iure.\n\nEt quod galisum non voluptate veritatis ut adipisci cupiditate et obcaecati mollitia et eaque suscipit. Sit enim iusto aut nihil voluptates ab magnam alias qui galisum dolores! Sed galisum vitae et autem quae qui maxime tenetur ut minima sapiente et quia voluptatem aut pariatur omnis.\n\nEst accusamus expedita in suscipit delectus et tenetur galisum! Id rerum nemo ad autem quos sed magnam praesentium ea optio alias aut natus corrupti sed dicta ducimus.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>On pense toujours à fermer le reader dès qu'on en a plus besoin pour libérer le fichier (d'autres programmes pourraient en avoir besoin). C'est extrèmement important si vous faites un jour de la parallélisation.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -15304,7 +15779,7 @@ L&#39;individu Georges Abitbol a 30 ans
 </div>
 </div>
 
-</div></section></section><section ><section >
+</div><div class="fragment" >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15316,7 +15791,7 @@ L&#39;individu Georges Abitbol a 30 ans
 </div>
 </div>
 </div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15353,7 +15828,7 @@ L&#39;individu Georges Abitbol a 30 ans
 </div>
 </div>
 
-</div></div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div></section></section><section ><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15378,7 +15853,7 @@ L&#39;individu Georges Abitbol a 30 ans
 </div>
 </div>
 
-</div></div></section></section><section ><section >
+</div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
