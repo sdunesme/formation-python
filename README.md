@@ -6,6 +6,7 @@ Support de formation Python pour les géographes préparé par Samuel Dunesme.
 ### Installation de l'environnement
 
 La première fois, vous devez installer un environnement python avec toutes les librairies dont nous allons avoir besoin pendant ce cours.
+Ouvrez un PowerShell dans le dossier contenant ce cours et tapez les commandes suivantes :
 
 ```powershell
 # Création de l'environnement
@@ -18,12 +19,13 @@ C:/<chemin_installation_python>/python.exe -m venv env --prompt formation-python
 .\env\Scripts\python.exe -m pip install -U pip
 
 # Installation des paquets nécessaires au cours
-.\env\Scripts\python.exe -m pip install numpy matplotlib pandas geopandas rasterio contextily
+.\env\Scripts\python.exe -m pip install numpy matplotlib pyarrow pandas geopandas rasterio contextily folium mapclassify jupyterlab
 ```
 
 ### Activation de l'environnement et lancement de l'IDE
 
 Lors des prochaines séances, votre environnement est déjà installé. Vous n'aurez plus qu'à l'activer comme ceci.
+Ouvrez un PowerShell dans le dossier contenant ce cours et tapez les commandes suivantes :
 
 ```powershell
 # Activation de l'environnement créé

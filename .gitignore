@@ -131,3 +131,5 @@ dmypy.json
 # Datasets
 datasets/output/*
 datasets/landsat/*
+
+!**.placeholder
