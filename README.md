@@ -12,12 +12,6 @@ Ouvrez un PowerShell dans le dossier contenant ce cours et tapez les commandes s
 # Création de l'environnement
 C:/<chemin_installation_python>/python.exe -m venv env --prompt formation-python
 
-# Activation de l'environnement créé
-.\env\Scripts\activate
-
-# Mise à jour du gestionnaire de paquets
-.\env\Scripts\python.exe -m pip install -U pip
-
 # Installation des paquets nécessaires au cours
 .\env\Scripts\python.exe -m pip install numpy matplotlib pyarrow pandas geopandas rasterio contextily folium mapclassify jupyterlab
 ```
@@ -28,11 +22,8 @@ Lors des prochaines séances, votre environnement est déjà installé. Vous n'a
 Ouvrez un PowerShell dans le dossier contenant ce cours et tapez les commandes suivantes :
 
 ```powershell
-# Activation de l'environnement créé
-.\env\Scripts\activate
-
 # Lancement de l'IDE Jupyter-Lab
-jupyter-lab.exe
+.\env\Scripts\jupyter-lab.exe
 ```
 
 ### Suivi du cours
