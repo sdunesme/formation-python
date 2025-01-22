@@ -3,6 +3,14 @@
 Support de formation Python pour les géographes préparé par Samuel Dunesme.
 
 ## Guide de démarrage
+### Avec Colab
+
+Google Colab permet d'exécuter les notebook dans un environnement cloud pré-installé. 
+
+<a target="_blank" href="https://colab.research.google.com/github/sdunesme/formation-python">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 ### Installation de l'environnement
 
 La première fois, vous devez installer un environnement python avec toutes les librairies dont nous allons avoir besoin pendant ce cours.
